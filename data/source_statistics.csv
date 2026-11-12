@@ -1,0 +1,5 @@
+source_database,target_property,phase,count,unique_molecules,mean_kJ_mol,std_kJ_mol,min_kJ_mol,max_kJ_mol,with_uncertainty
+NIST_Chemistry_WebBook,delta_f_H_gas,gas,166,166,-114.855,203.075,-566,385,115
+NIST_Chemistry_WebBook,delta_f_H_liquid,liquid,121,121,-202.139,200.382,-609.6,335.2,102
+NIST_Chemistry_WebBook,delta_f_H_solid,solid,15,15,-61.08,184.768,-318.8,212,10
+QM9,delta_f_H_gas,gas,12000,12000,5.80895,228.17,-956.666,888.315,0

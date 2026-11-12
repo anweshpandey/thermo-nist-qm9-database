@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-11-11T15:14:44.978099",
+  "structure_registry": {
+    "total_unique_molecules": 11860,
+    "with_inchikey": 11839,
+    "with_smiles": 11839,
+    "with_cas": 11860,
+    "sources": {
+      "QM9": 11623,
+      "NIST_WebBook": 237
+    }
+  },
+  "experimental_observations": {
+    "total": 302,
+    "gas_phase": 166,
+    "liquid_phase": 121,
+    "solid_phase": 15,
+    "unique_molecules": 166,
+    "with_uncertainty": 227,
+    "methods": {
+      "Ccb": 133,
+      "Cm": 37,
+      "Ccr": 36,
+      "AVG": 22,
+      "Eqk": 16,
+      "Review": 15,
+      "Chyd": 10,
+      "Ion": 2
+    }
+  },
+  "computational_observations": {
+    "total": 12000,
+    "gas_phase": 12000,
+    "unique_molecules": 11725,
+    "method": "B3LYP/6-31G(2df,p)//B3LYP/6-31G(2df,p)"
+  },
+  "experimental_gold": {
+    "count": 5,
+    "unique_molecules": 5
+  },
+  "validation": {
+    "qm9_vs_experimental": {
+      "matched_molecules": 88,
+      "mean_absolute_error_kJ_mol": 80.12,
+      "rmse_kJ_mol": 87.83,
+      "max_absolute_error_kJ_mol": 189.56,
+      "r_squared": 0.9624
+    }
+  },
+  "ml_dataset": {
+    "total_molecules": 11860,
+    "with_experimental_target": 166,
+    "with_computed_target": 11637,
+    "target_range_kJ_mol": [
+      -956.666,
+      888.315
+    ]
+  },
+  "duplicate_check": {
+    "duplicate_inchikeys": 0,
+    "duplicate_cas": 11622
+  }
+}

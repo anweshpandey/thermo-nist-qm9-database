@@ -1,0 +1,88 @@
+name: Validate Data
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validate data structure
+        run: |
+          python scripts/validate_data.py data/
+
+      - name: Test database loading
+        run: |
+          python -c "
+          from scripts.load_database import load_nist_qm9_database
+          db = load_nist_qm9_database('data/')
+          print('Loaded keys:', list(db.keys()))
+          for k, v in db.items():
+              if hasattr(v, 'shape'):
+                  print(f'  {k}: {v.shape}')
+              else:
+                  print(f'  {k}: {type(v).__name__}')
+          "
+
+      - name: Quick data exploration
+        run: |
+          python scripts/explore_data.py data/
+
+      - name: Verify key statistics
+        run: |
+          python -c "
+          import pandas as pd
+          import json
+          
+          # Verify structure registry
+          sr = pd.read_csv('data/structure_registry.csv')
+          assert len(sr) == 11860, f'Expected 11860, got {len(sr)}'
+          assert sr['inchikey'].duplicated().sum() == 0, 'Duplicate InChIKeys found'
+          print(f'✓ Structure registry: {len(sr)} unique molecules, 0 duplicate InChIKeys')
+          
+          # Verify ML dataset
+          ml = pd.read_csv('data/ml_dataset.csv')
+          assert len(ml) == 11860, f'Expected 11860, got {len(ml)}'
+          exp = (ml['target_label'] == 'experimental').sum()
+          comp = (ml['target_label'] == 'computed').sum()
+          assert exp == 166, f'Expected 166 experimental, got {exp}'
+          assert comp == 11637, f'Expected 11637 computed, got {comp}'
+          print(f'✓ ML dataset: {len(ml)} rows, {exp} exp + {comp} comp targets')
+          
+          # Verify observations
+          exp_obs = pd.read_csv('data/experimental_observations.csv')
+          comp_obs = pd.read_csv('data/computational_observations.csv')
+          assert len(exp_obs) == 302, f'Expected 302 exp obs, got {len(exp_obs)}'
+          assert len(comp_obs) == 12000, f'Expected 12000 comp obs, got {len(comp_obs)}'
+          print(f'✓ Observations: {len(exp_obs)} exp + {len(comp_obs)} comp')
+          
+          # Verify QC report
+          with open('data/qc_report.json') as f:
+              qc = json.load(f)
+          assert qc['structure_registry']['total_unique_molecules'] == 11860
+          val = qc['validation']['qm9_vs_experimental']
+          assert abs(val['mean_absolute_error_kJ_mol'] - 80.12) < 0.01
+          assert abs(val['r_squared'] - 0.9624) < 0.0001
+          print(f'✓ QC report: MAE={val[\"mean_absolute_error_kJ_mol\"]} kJ/mol, R²={val[\"r_squared\"]}')
+          
+          print('\\n✅ All key statistics verified!')
+          "

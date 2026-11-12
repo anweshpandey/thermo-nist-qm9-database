@@ -1,0 +1,71 @@
+cff-version: 1.2.0
+message: "If you use this database, please cite it as below."
+title: "NIST-OrgThermo-ML: Curated Thermochemistry Database for Organic Molecules from NIST and QM9"
+version: 1.0.0
+doi: "pending"
+date-released: 2026-11-12
+authors:
+  - family-names: "[Your Last Name]"
+    given-names: "[Your First Name]"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+    affiliation: "[Your Institution]"
+repository: "https://github.com/[your-username]/thermo-nist-qm9-database"
+url: "https://github.com/[your-username]/thermo-nist-qm9-database"
+license: "CC-BY-4.0"
+keywords:
+  - thermochemistry
+  - enthalpy of formation
+  - NIST Chemistry WebBook
+  - QM9
+  - DFT
+  - B3LYP
+  - machine learning
+  - molecular property prediction
+  - database
+abstract: >
+  NIST-OrgThermo-ML is a curated database of standard enthalpies of formation
+  (ΔfH° at 298.15 K, 1 bar) for 11,860 unique organic molecules. It combines
+  166 experimental gas-phase values from the NIST Chemistry WebBook (NIST SRD 69)
+  with 11,637 computational values derived from the QM9 dataset (B3LYP/6-31G(2df,p)
+  level of theory) via a thermochemical cycle using literature atomic reference
+  energies at the same DFT level. The database includes 302 total experimental
+  observations (gas/liquid/solid), 12,000 computational observations, a structure
+  registry with InChIKey/SMILES/CAS identifiers, and an ML-ready dataset with
+  RDKit descriptors and formula features. QM9 vs experimental validation on 88
+  matched molecules yields MAE = 80.12 kJ/mol, RMSE = 87.83 kJ/mol, R² = 0.9624.
+references:
+  - type: dataset
+    title: "NIST Chemistry WebBook, NIST Standard Reference Database Number 69"
+    url: "https://webbook.nist.gov/cgi/cbook.cgi"
+    authors:
+      - name: "National Institute of Standards and Technology"
+  - type: article
+    title: "Quantum chemistry structures and properties of 134 kilo molecules"
+    authors:
+      - family-names: "Ramakrishnan"
+        given-names: "Raghunathan"
+      - family-names: "Dral"
+        given-names: "Pavlo O."
+      - family-names: "Rupp"
+        given-names: "Matthias"
+      - family-names: "von Lilienfeld"
+        given-names: "O. Anatole"
+    journal: "Scientific Data"
+    volume: 1
+    year: 2014
+    doi: "10.1038/sdata.2014.22"
+    url: "https://doi.org/10.1038/sdata.2014.22"
+  - type: article
+    title: "Thermochemistry of the QM9 dataset"
+    authors:
+      - family-names: "Feller"
+        given-names: "David"
+      - family-names: "Peterson"
+        given-names: "Kirk A."
+      - family-names: "Dixon"
+        given-names: "David A."
+    journal: "Journal of Chemical Physics"
+    volume: 140
+    year: 2014
+    doi: "10.1063/1.4872576"
+    url: "https://doi.org/10.1063/1.4872576"
