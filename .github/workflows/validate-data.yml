@@ -56,8 +56,8 @@ jobs:
           # Verify structure registry
           sr = pd.read_csv('data/structure_registry.csv')
           assert len(sr) == 11860, f'Expected 11860, got {len(sr)}'
-          assert sr['inchikey'].duplicated().sum() == 0, 'Duplicate InChIKeys found'
-          print(f'✓ Structure registry: {len(sr)} unique molecules, 0 duplicate InChIKeys')
+          assert sr['inchikey'].dropna().duplicated().sum() == 0, 'Duplicate InChIKeys found'
+          print(f'✓ Structure registry: {len(sr)} unique molecules, 0 duplicate InChIKeys (21 NaN from deuterated NIST compounds)')
           
           # Verify ML dataset
           ml = pd.read_csv('data/ml_dataset.csv')
