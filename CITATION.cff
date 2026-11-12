@@ -5,12 +5,12 @@ version: 1.0.0
 doi: "pending"
 date-released: 2026-11-12
 authors:
-  - family-names: "[Your Last Name]"
-    given-names: "[Your First Name]"
+  - family-names: "Pandey"
+    given-names: "Anwesh"
     orcid: "https://orcid.org/0000-0000-0000-0000"
-    affiliation: "[Your Institution]"
-repository: "https://github.com/[your-username]/thermo-nist-qm9-database"
-url: "https://github.com/[your-username]/thermo-nist-qm9-database"
+    affiliation: "Independent Researcher"
+repository: "https://github.com/anweshpandey/thermo-nist-qm9-database"
+url: "https://github.com/anweshpandey/thermo-nist-qm9-database"
 license: "CC-BY-4.0"
 keywords:
   - thermochemistry

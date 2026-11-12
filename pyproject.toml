@@ -52,10 +52,10 @@ viz = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/[your-username]/thermo-nist-qm9-database"
-Repository = "https://github.com/[your-username]/thermo-nist-qm9-database"
-Issues = "https://github.com/[your-username]/thermo-nist-qm9-database/issues"
-Documentation = "https://github.com/[your-username]/thermo-nist-qm9-database/tree/main/docs"
+Homepage = "https://github.com/anweshpandey/thermo-nist-qm9-database"
+Repository = "https://github.com/anweshpandey/thermo-nist-qm9-database"
+Issues = "https://github.com/anweshpandey/thermo-nist-qm9-database/issues"
+Documentation = "https://github.com/anweshpandey/thermo-nist-qm9-database/tree/main/docs"
 
 [tool.setuptools.packages.find]
 where = ["."]

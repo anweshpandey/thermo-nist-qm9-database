@@ -160,10 +160,10 @@ If you use this database, please cite:
 ```bibtex
 @dataset{nist_orgthermo_ml_2026,
   title = {NIST-OrgThermo-ML: Curated Thermochemistry Database for Organic Molecules from NIST and QM9},
-  author = {[Your Name/Group]},
+  author = {Anwesh Pandey},
   year = {2026},
   publisher = {GitHub},
-  url = {https://github.com/[your-username]/thermo-nist-qm9-database},
+  url = {https://github.com/anweshpandey/thermo-nist-qm9-database},
   doi = {pending},
   note = {11,860 molecules; 166 experimental + 11,637 computed ΔfH°(gas) at 298.15 K}
 }
@@ -201,8 +201,7 @@ Issues and PRs welcome for:
 
 ## 📬 Contact
 
-- **Issues**: [GitHub Issues](https://github.com/[your-username]/thermo-nist-qm9-database/issues)
-- **Email**: [your-email@domain.com]
+- **Issues**: [GitHub Issues](https://github.com/anweshpandey/thermo-nist-qm9-database/issues)
 
 ---
 
