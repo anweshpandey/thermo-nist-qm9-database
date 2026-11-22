@@ -2,14 +2,13 @@ cff-version: 1.2.0
 message: "If you use this database, please cite it as below."
 title: "NIST-OrgThermo-ML: Curated Thermochemistry Database for Organic Molecules from NIST and QM9"
 version: 1.0.0
-doi: "pending"
 date-released: 2026-11-12
 authors:
   - family-names: "Pandey"
     given-names: "Anwesh"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
+    orcid: "https://orcid.org/0000-0002-6227-829X"
     affiliation: "Independent Researcher"
-repository: "https://github.com/anweshpandey/thermo-nist-qm9-database"
+repository-code: "https://github.com/anweshpandey/thermo-nist-qm9-database"
 url: "https://github.com/anweshpandey/thermo-nist-qm9-database"
 license: "CC-BY-4.0"
 keywords:
